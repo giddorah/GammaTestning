@@ -48,6 +48,11 @@ namespace GammaProjekt
                             newNumber = true;
                             break;
                         case ConsoleKey.C:
+                            if (output == "0")
+                            {
+                                numberOne = 0;
+                                thingiee = " ";
+                            }
                             output = "0";
                             break;
                         case ConsoleKey.Enter:
@@ -139,8 +144,18 @@ namespace GammaProjekt
         {
             Console.SetCursorPosition(3, 2);
             Console.WriteLine("{0}         ", thingiee);
-            Console.SetCursorPosition(14 - output.Length, 2);
-            Console.WriteLine(output);
+            if (output.Length < 11)
+            {
+                Console.SetCursorPosition(14 - output.Length, 2);
+                Console.WriteLine(output);
+            }
+            else
+            {
+                Console.SetCursorPosition(3, 2);
+                Console.WriteLine("           ");
+                Console.SetCursorPosition(6, 2);
+                Console.WriteLine("Error");
+            }
             Console.SetCursorPosition(0, 15);
         }
         private void Graphics()
