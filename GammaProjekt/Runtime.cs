@@ -16,7 +16,7 @@ namespace GammaProjekt
             {
                 ShowNumbers();
                 var input = Console.ReadKey(true);
-                if ((input.Modifiers & ConsoleModifiers.Shift) != 0 && input.Key == ConsoleKey.D7)
+                if ((input.Modifiers & ConsoleModifiers.Shift) != 0 && input.Key == ConsoleKey.D7 || input.Key == ConsoleKey.Divide)
                 {
                     thingiee = "/";
                     numberOne = double.Parse(output);
@@ -27,22 +27,27 @@ namespace GammaProjekt
                     CheckIfNumber(input.Key);
                     switch (input.Key)
                     {
+
                         case ConsoleKey.OemComma:
                         case ConsoleKey.OemPeriod:
                             if (!output.Contains(".")) output += ".";
                             break;
                         case ConsoleKey.OemPlus:
+                        case ConsoleKey.Add:
                             thingiee = "+";
                             numberOne = double.Parse(output);
                             newNumber = true;
                             break;
 
                         case ConsoleKey.OemMinus:
+                    case ConsoleKey.Subtract:
                             thingiee = "-";
                             numberOne = double.Parse(output);
                             newNumber = true;
                             break;
                         case ConsoleKey.X:
+                        case ConsoleKey.Multiply:
+
                             thingiee = "x";
                             numberOne = double.Parse(output);
                             newNumber = true;
@@ -89,34 +94,45 @@ namespace GammaProjekt
         {
             switch (key)
             {
+
                 case ConsoleKey.D0:
+                case ConsoleKey.NumPad0:
                     Number(0);
                     break;
                 case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
                     Number(1);
                     break;
                 case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
                     Number(2);
                     break;
                 case ConsoleKey.D3:
+                case ConsoleKey.NumPad3:
                     Number(3);
                     break;
                 case ConsoleKey.D4:
+                case ConsoleKey.NumPad4:
                     Number(4);
                     break;
                 case ConsoleKey.D5:
+                case ConsoleKey.NumPad5:
                     Number(5);
                     break;
                 case ConsoleKey.D6:
+                case ConsoleKey.NumPad6:
                     Number(6);
                     break;
                 case ConsoleKey.D7:
+                case ConsoleKey.NumPad7:
                     Number(7);
                     break;
                 case ConsoleKey.D8:
+                case ConsoleKey.NumPad8:
                     Number(8);
                     break;
                 case ConsoleKey.D9:
+                case ConsoleKey.NumPad9:
                     Number(9);
                     break;
             }
