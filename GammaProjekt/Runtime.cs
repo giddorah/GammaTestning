@@ -7,7 +7,6 @@ namespace GammaProjekt
         internal void Start()
         {
             throw new NotImplementedException();
-            hej
         }
     }
 }
