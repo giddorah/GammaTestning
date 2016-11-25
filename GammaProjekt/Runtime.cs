@@ -90,10 +90,9 @@ namespace GammaProjekt
 
             else if (thingiee == "/" && numberOne != 0 && output == "0")
             {
-                Console.WriteLine("du kan inte dela med 0");
+                Console.SetCursorPosition(3, 2);
+                Console.WriteLine("        NaN");
                 Console.ReadKey(true);
-                Console.SetCursorPosition(0, 15);
-                Console.WriteLine("                      ");
             }
                 thingiee = " ";
                 newNumber = true;
