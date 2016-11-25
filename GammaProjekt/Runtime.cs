@@ -30,7 +30,7 @@ namespace GammaProjekt
 
                         case ConsoleKey.OemComma:
                         case ConsoleKey.OemPeriod:
-                            if (!output.Contains(".")) output += ".";
+                            if (!output.Contains(",")) output += ",";
                             break;
                         case ConsoleKey.OemPlus:
                         case ConsoleKey.Add:
