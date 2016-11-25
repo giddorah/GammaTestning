@@ -40,7 +40,6 @@ namespace GammaProjekt
                         case ConsoleKey.OemMinus:
                             thingiee = "-";
                             numberOne = double.Parse(output);
-                            Console.WriteLine(numberOne);
                             newNumber = true;
                             break;
                         case ConsoleKey.X:
