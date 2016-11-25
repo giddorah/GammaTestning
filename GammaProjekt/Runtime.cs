@@ -22,6 +22,10 @@ namespace GammaProjekt
                     numberOne = double.Parse(output);
                     newNumber = true;
                 }
+                else if ((input.Modifiers & ConsoleModifiers.Shift) !=0 && input.Key == ConsoleKey.D0 || input.Key == ConsoleKey.Enter)
+                {
+                    Enter();
+                }
                 else
                 {
                     CheckIfNumber(input.Key);
@@ -59,9 +63,6 @@ namespace GammaProjekt
                                 thingiee = " ";
                             }
                             output = "0";
-                            break;
-                        case ConsoleKey.Enter:
-                            Enter();
                             break;
                         case ConsoleKey.Backspace:
                             if (!newNumber)
