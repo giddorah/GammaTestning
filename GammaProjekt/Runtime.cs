@@ -85,10 +85,18 @@ namespace GammaProjekt
                 output = (numberOne - double.Parse(output)).ToString();
             else if (thingiee == "x")
                 output = (numberOne * double.Parse(output)).ToString();
-            else if (thingiee == "/")
+            else if (thingiee == "/" && numberOne != 0 && output != "0")
                 output = (numberOne / double.Parse(output)).ToString();
-            thingiee = " ";
-            newNumber = true;
+
+            else if (thingiee == "/" && numberOne != 0 && output == "0")
+            {
+                Console.WriteLine("du kan inte dela med 0");
+                Console.ReadKey(true);
+                Console.SetCursorPosition(0, 15);
+                Console.WriteLine("                      ");
+            }
+                thingiee = " ";
+                newNumber = true;
         }
         private void CheckIfNumber(ConsoleKey key)
         {
