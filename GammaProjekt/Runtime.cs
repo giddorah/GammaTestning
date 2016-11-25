@@ -30,7 +30,7 @@ namespace GammaProjekt
 
                         case ConsoleKey.OemComma:
                         case ConsoleKey.OemPeriod:
-                            if (!output.Contains(",")) output += ",";
+                            if (!output.Contains(",") && output.Length < 9) output += ",";
                             break;
                         case ConsoleKey.OemPlus:
                         case ConsoleKey.Add:
@@ -101,7 +101,6 @@ namespace GammaProjekt
         {
             switch (key)
             {
-
                 case ConsoleKey.D0:
                 case ConsoleKey.NumPad0:
                     Number(0);
@@ -167,6 +166,9 @@ namespace GammaProjekt
         {
             Console.SetCursorPosition(3, 2);
             Console.WriteLine("{0}         ", thingiee);
+            
+            
+            Console.WriteLine(output.Length);
             if (output.Length < 11)
             {
                 Console.SetCursorPosition(14 - output.Length, 2);
@@ -174,10 +176,26 @@ namespace GammaProjekt
             }
             else
             {
-                Console.SetCursorPosition(3, 2);
-                Console.WriteLine("           ");
-                Console.SetCursorPosition(6, 2);
-                Console.WriteLine("Error");
+                var isDecimal = false;
+                for (int i = 0; i < 9; i++)
+                {
+                    if (output[i] == '.')
+                        isDecimal = true;
+                }
+
+                if (isDecimal)
+                {
+                    output = output.Remove(10);
+                    Console.SetCursorPosition(14 - output.Length, 2);
+                    Console.WriteLine(output);
+                }
+                else
+                {
+                    Console.SetCursorPosition(3, 2);
+                    Console.WriteLine("           ");
+                    Console.SetCursorPosition(6, 2);
+                    Console.WriteLine("Error");
+                }
             }
             Console.SetCursorPosition(0, 15);
         }
