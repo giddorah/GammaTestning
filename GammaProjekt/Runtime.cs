@@ -81,7 +81,9 @@ namespace GammaProjekt
         {
             if (input <= 0.0)
             {
-                throw new ArgumentOutOfRangeException();
+                Console.SetCursorPosition(3, 2);
+                Console.WriteLine("        NaN");
+                Console.ReadKey(true);
             }
 
             double result = input;
