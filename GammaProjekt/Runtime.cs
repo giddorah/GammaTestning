@@ -4,7 +4,7 @@
 namespace GammaProjekt
 {
     
-    internal class Runtime
+    public class Runtime
     {
         string output = "0";
         string Operator = " ";
@@ -77,7 +77,7 @@ namespace GammaProjekt
             }
         }
 
-        private double SquareRoot(double input)
+        public double SquareRoot(double input)
         {
             if (input <= 0.0)
             {
