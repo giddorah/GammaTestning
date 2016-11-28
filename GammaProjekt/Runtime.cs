@@ -7,7 +7,7 @@ namespace GammaProjekt
     public class Runtime
     {
         string output = "0";
-        string Operator = " ";
+        string op = " ";
         double numberOne = 0;
         double operatorRepeatNumber = 0;
         bool newNumber = false;
@@ -54,7 +54,7 @@ namespace GammaProjekt
                             if (output == "0")
                             {
                                 numberOne = 0;
-                                Operator = " ";
+                                op = " ";
                             }
                             output = "0";
                             break;
@@ -99,7 +99,7 @@ namespace GammaProjekt
 
         private void ChangeOperator(string newOperator)
         {
-            if (Operator == newOperator)
+            if (op == newOperator)
             {
                 if (operatorRepeatNumber == 0) operatorRepeatNumber = double.Parse(output);
                 if (newOperator == "+") numberOne += operatorRepeatNumber;
@@ -108,7 +108,7 @@ namespace GammaProjekt
                 else if (newOperator == "x") numberOne *= operatorRepeatNumber;
                 output = numberOne.ToString();
             }
-            else if (Operator == " ")
+            else if (op == " ")
             {
                 try
                 {
@@ -121,23 +121,33 @@ namespace GammaProjekt
                 }
             }
 
-            Operator = newOperator;
+            op = newOperator;
             newNumber = true;
         }
 
         private void Enter()
         {
-            if (Operator == "+")
-                output = (numberOne + double.Parse(output)).ToString();
-            else if (Operator == "-")
-                output = (numberOne - double.Parse(output)).ToString();
-            else if (Operator == "x")
-                output = (numberOne * double.Parse(output)).ToString();
-            else if (Operator == "/" && numberOne == 0)
+            var secondNumber = 0.0;
+            try
+            {
+                secondNumber = double.Parse(output);
+            }
+            catch (Exception)
+            {
+                output = output.Replace(".", ",");
+                secondNumber = double.Parse(output);
+            }
+            if (op == "+")
+                output = (numberOne + secondNumber).ToString();
+            else if (op == "-")
+                output = (numberOne - secondNumber).ToString();
+            else if (op == "x")
+                output = (numberOne * secondNumber).ToString();
+            else if (op == "/" && numberOne == 0)
                 output = "0";
-            else if (Operator == "/" && numberOne != 0 && output != "0")
-                output = (numberOne / double.Parse(output)).ToString();
-            else if (Operator == "/" && numberOne != 0 && output == "0")
+            else if (op == "/" && numberOne != 0 && output != "0")
+                output = (numberOne / secondNumber).ToString();
+            else if (op == "/" && numberOne != 0 && output == "0")
             {
                 Console.SetCursorPosition(3, 2);
                 Console.WriteLine("        NaN");
@@ -145,7 +155,7 @@ namespace GammaProjekt
                 numberOne = 0;
                 Console.ReadKey(true);
             }
-            Operator = " ";
+            op = " ";
             newNumber = false;
         }
         private void CheckIfNumber(ConsoleKey input)
@@ -215,7 +225,7 @@ namespace GammaProjekt
         private void ShowNumbers()
         {
             Console.SetCursorPosition(3, 2);
-            Console.WriteLine("{0}         ", Operator);
+            Console.WriteLine("{0}         ", op);
 
             if (output.Length < 11)
             {
