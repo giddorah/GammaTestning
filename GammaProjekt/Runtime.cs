@@ -255,7 +255,7 @@ namespace GammaProjekt
                 {
                     output = output.Remove(10);
                     Console.SetCursorPosition(14 - output.Length, 2);
-                    Console.WriteLine(output.Replace(".", ","));
+                    Console.WriteLine(output.Replace(",", "."));
                 }
                 else
                 {
@@ -267,7 +267,6 @@ namespace GammaProjekt
                     numberOne = 0;
                 }
             }
-
             Console.SetCursorPosition(0, 15);
         }
         private void CalculatorGraphics()
@@ -300,7 +299,7 @@ namespace GammaProjekt
             Console.WriteLine("\"r\" for root");
             Console.WriteLine("\"c\" to clear (twice to clear all)");
             Console.WriteLine("\".\" or \",\" to add a decimalpoint");
-            Console.WriteLine("backspace to remove the last number");
+            Console.WriteLine("\"<─\" (backspace) to remove the last number");
 
         }
     }
