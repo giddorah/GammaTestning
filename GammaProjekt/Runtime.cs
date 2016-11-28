@@ -5,12 +5,14 @@ namespace GammaProjekt
     internal class Runtime
     {
         string output = "0";
-        string thingiee = " ";
+        string Operator = " ";
         double numberOne = 0;
+        double operatorRepeatNumber = 0;
         bool newNumber = false;
         internal void Start()
         {
-            Graphics();
+            CalculatorGraphics();
+            ControlsGraphics();
             Console.CursorVisible = false;
             while (true)
             {
@@ -18,11 +20,9 @@ namespace GammaProjekt
                 var input = Console.ReadKey(true);
                 if ((input.Modifiers & ConsoleModifiers.Shift) != 0 && input.Key == ConsoleKey.D7 || input.Key == ConsoleKey.Divide)
                 {
-                    thingiee = "/";
-                    numberOne = double.Parse(output);
-                    newNumber = true;
+                    ChangeOperator("/");
                 }
-                else if ((input.Modifiers & ConsoleModifiers.Shift) !=0 && input.Key == ConsoleKey.D0 || input.Key == ConsoleKey.Enter)
+                else if ((input.Modifiers & ConsoleModifiers.Shift) != 0 && input.Key == ConsoleKey.D0 || input.Key == ConsoleKey.Enter)
                 {
                     Enter();
                 }
@@ -31,36 +31,27 @@ namespace GammaProjekt
                     CheckIfNumber(input.Key);
                     switch (input.Key)
                     {
-
                         case ConsoleKey.OemComma:
                         case ConsoleKey.OemPeriod:
                             if (!output.Contains(",") && output.Length < 9) output += ",";
                             break;
                         case ConsoleKey.OemPlus:
                         case ConsoleKey.Add:
-                            thingiee = "+";
-                            numberOne = double.Parse(output);
-                            newNumber = true;
+                            ChangeOperator("+");
                             break;
-
                         case ConsoleKey.OemMinus:
-                    case ConsoleKey.Subtract:
-                            thingiee = "-";
-                            numberOne = double.Parse(output);
-                            newNumber = true;
+                        case ConsoleKey.Subtract:
+                            ChangeOperator("-");
                             break;
                         case ConsoleKey.X:
                         case ConsoleKey.Multiply:
-
-                            thingiee = "x";
-                            numberOne = double.Parse(output);
-                            newNumber = true;
+                            ChangeOperator("x");
                             break;
                         case ConsoleKey.C:
                             if (output == "0")
                             {
                                 numberOne = 0;
-                                thingiee = " ";
+                                Operator = " ";
                             }
                             output = "0";
                             break;
@@ -73,34 +64,80 @@ namespace GammaProjekt
                             if (output.Length == 0)
                                 output = "0";
                             break;
+                        case ConsoleKey.S:
+                            output = (double.Parse(output) * double.Parse(output)).ToString();
+                            break;
+                        case ConsoleKey.R:
+                            output = SquareRoot(double.Parse(output)).ToString();
+                            break;
                     }
                 }
             }
         }
 
+        private double SquareRoot(double input)
+        {
+            if (input <= 0.0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            double result = input;
+            double previousResult = -input;
+            while (Math.Abs(previousResult - result) > result / 1000)
+            {
+                previousResult = result;
+                result = (result + input / result) / 2;
+            }
+            return result;
+        }
+
+        private void ChangeOperator(string newOperator)
+        {
+            if (Operator == newOperator)
+            {
+                if (operatorRepeatNumber == 0) operatorRepeatNumber = double.Parse(output);
+                if (newOperator == "+") numberOne += operatorRepeatNumber;
+                else if (newOperator == "-") numberOne -= operatorRepeatNumber;
+                else if (newOperator == "/") numberOne /= operatorRepeatNumber;
+                else if (newOperator == "x") numberOne *= operatorRepeatNumber;
+                output = numberOne.ToString();
+            }
+            else if (Operator == " ")
+            {
+                numberOne = double.Parse(output);
+            }
+
+            Operator = newOperator;
+            newNumber = true;
+        }
+
         private void Enter()
         {
-            if (thingiee == "+")
+            if (Operator == "+")
                 output = (numberOne + double.Parse(output)).ToString();
-            else if (thingiee == "-")
+            else if (Operator == "-")
                 output = (numberOne - double.Parse(output)).ToString();
-            else if (thingiee == "x")
+            else if (Operator == "x")
                 output = (numberOne * double.Parse(output)).ToString();
-            else if (thingiee == "/" && numberOne != 0 && output != "0")
+            else if (Operator == "/" && numberOne == 0)
+                output = "0";
+            else if (Operator == "/" && numberOne != 0 && output != "0")
                 output = (numberOne / double.Parse(output)).ToString();
-
-            else if (thingiee == "/" && numberOne != 0 && output == "0")
+            else if (Operator == "/" && numberOne != 0 && output == "0")
             {
                 Console.SetCursorPosition(3, 2);
                 Console.WriteLine("        NaN");
+                output = "0";
+                numberOne = 0;
                 Console.ReadKey(true);
             }
-                thingiee = " ";
-                newNumber = true;
+            Operator = " ";
+            newNumber = false;
         }
-        private void CheckIfNumber(ConsoleKey key)
+        private void CheckIfNumber(ConsoleKey input)
         {
-            switch (key)
+            switch (input)
             {
                 case ConsoleKey.D0:
                 case ConsoleKey.NumPad0:
@@ -144,7 +181,6 @@ namespace GammaProjekt
                     break;
             }
         }
-
         public void Number(int number)
         {
             if (newNumber)
@@ -166,10 +202,8 @@ namespace GammaProjekt
         private void ShowNumbers()
         {
             Console.SetCursorPosition(3, 2);
-            Console.WriteLine("{0}         ", thingiee);
-            
-            
-            Console.WriteLine(output.Length);
+            Console.WriteLine("{0}         ", Operator);
+
             if (output.Length < 11)
             {
                 Console.SetCursorPosition(14 - output.Length, 2);
@@ -196,25 +230,44 @@ namespace GammaProjekt
                     Console.WriteLine("           ");
                     Console.SetCursorPosition(6, 2);
                     Console.WriteLine("Error");
+                    output = "0";
+                    numberOne = 0;
                 }
             }
+
             Console.SetCursorPosition(0, 15);
         }
-        private void Graphics()
+        private void CalculatorGraphics()
         {
             Console.WriteLine("┌───────────────┐");
             Console.WriteLine("│ ┌───────────┐ │");
             Console.WriteLine("│ │           │ │");
             Console.WriteLine("│ └───────────┘ │");
             Console.WriteLine("├───┬───┬───┬───┤");
-            Console.WriteLine("│ 1 │ 2 │ 3 │ + │");
+            Console.WriteLine("│ x²│ √ │ <─│ + │");
             Console.WriteLine("├───┼───┼───┼───┤");
-            Console.WriteLine("│ 4 │ 5 │ 6 │ - │");
+            Console.WriteLine("│ 1 │ 2 │ 3 │ - │");
             Console.WriteLine("├───┼───┼───┼───┤");
-            Console.WriteLine("│ 7 │ 8 │ 9 │ x │");
+            Console.WriteLine("│ 4 │ 5 │ 6 │ x │");
             Console.WriteLine("├───┼───┼───┼───┤");
-            Console.WriteLine("│ C │ 0 │ = │ / │");
+            Console.WriteLine("│ 7 │ 8 │ 9 │ / │");
+            Console.WriteLine("├───┼───┼───┼───┤");
+            Console.WriteLine("│ C │ 0 │ . │ = │");
             Console.WriteLine("└───┴───┴───┴───┘");
+        }
+
+        private void ControlsGraphics()
+        {
+            Console.WriteLine("Controls:");
+            Console.WriteLine("\"+\" for addition");
+            Console.WriteLine("\"-\" for subtraction");
+            Console.WriteLine("\"x\" for multiplication");
+            Console.WriteLine("\"/\" for Division");
+            Console.WriteLine("\"s\" for squared");
+            Console.WriteLine("\"r\" for root");
+            Console.WriteLine("\"c\" to clear (twice to clear all)");
+            Console.WriteLine("backspace to remove the last number");
+
         }
     }
 }
