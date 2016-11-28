@@ -68,10 +68,25 @@ namespace GammaProjekt
                                 output = "0";
                             break;
                         case ConsoleKey.S:
-                            output = (double.Parse(output) * double.Parse(output)).ToString();
+                            try
+                            {
+                                output = (double.Parse(output) * double.Parse(output)).ToString();
+                            }
+                            catch (Exception)
+                            {
+
+                                output = (double.Parse(output.Replace(".",",")) * double.Parse(output.Replace(".",","))).ToString();
+                            }
                             break;
                         case ConsoleKey.R:
-                            output = SquareRoot(double.Parse(output)).ToString();
+                            try
+                            {
+                                output = SquareRoot(double.Parse(output)).ToString();
+                            }
+                            catch (Exception)
+                            {
+                                output = SquareRoot(double.Parse(output.Replace(".",","))).ToString();
+                            }
                             break;
                     }
                 }
@@ -101,7 +116,15 @@ namespace GammaProjekt
         {
             if (op == newOperator)
             {
-                if (operatorRepeatNumber == 0) operatorRepeatNumber = double.Parse(output);
+                if (operatorRepeatNumber == 0) try
+                    {
+                        operatorRepeatNumber = double.Parse(output);
+                    }
+                    catch (Exception)
+                    {
+                        output = output.Replace(".", ",");
+                        operatorRepeatNumber = double.Parse(output);
+                    }
                 if (newOperator == "+") numberOne += operatorRepeatNumber;
                 else if (newOperator == "-") numberOne -= operatorRepeatNumber;
                 else if (newOperator == "/") numberOne /= operatorRepeatNumber;
@@ -230,7 +253,7 @@ namespace GammaProjekt
             if (output.Length < 11)
             {
                 Console.SetCursorPosition(14 - output.Length, 2);
-                Console.WriteLine(output);
+                Console.WriteLine(output.Replace(",","."));
             }
             else
             {
@@ -245,7 +268,7 @@ namespace GammaProjekt
                 {
                     output = output.Remove(10);
                     Console.SetCursorPosition(14 - output.Length, 2);
-                    Console.WriteLine(output);
+                    Console.WriteLine(output.Replace(".", ","));
                 }
                 else
                 {
