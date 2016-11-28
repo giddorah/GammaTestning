@@ -112,10 +112,10 @@ namespace GammaProjekt
                         output = output.Replace(".", ",");
                         operatorRepeatNumber = double.Parse(output);
                     }
-                if (newOperator == "+") numberOne += operatorRepeatNumber;
-                else if (newOperator == "-") numberOne -= operatorRepeatNumber;
-                else if (newOperator == "/") numberOne /= operatorRepeatNumber;
-                else if (newOperator == "x") numberOne *= operatorRepeatNumber;
+                if (newOperator == "+") numberOne = Addition(numberOne, operatorRepeatNumber);
+                else if (newOperator == "-") numberOne = Subtraction(numberOne, operatorRepeatNumber);
+                else if (newOperator == "x") numberOne = Multiplication(numberOne, operatorRepeatNumber);
+                else if (newOperator == "/") numberOne = Division(numberOne, operatorRepeatNumber);
                 output = numberOne.ToString();
             }
             else if (op == " ")
@@ -137,37 +137,59 @@ namespace GammaProjekt
 
         private void Enter()
         {
-            var secondNumber = 0.0;
+            var numberTwo = 0.0;
             try
             {
-                secondNumber = double.Parse(output);
+                numberTwo = double.Parse(output);
             }
             catch (Exception)
             {
                 output = output.Replace(".", ",");
-                secondNumber = double.Parse(output);
+                numberTwo = double.Parse(output);
             }
             if (op == "+")
-                output = (numberOne + secondNumber).ToString();
+                output = Addition(numberOne, numberTwo).ToString();
             else if (op == "-")
-                output = (numberOne - secondNumber).ToString();
+                output = Subtraction(numberOne, numberTwo).ToString();
             else if (op == "x")
-                output = (numberOne * secondNumber).ToString();
-            else if (op == "/" && numberOne == 0)
-                output = "0";
-            else if (op == "/" && numberOne != 0 && output != "0")
-                output = (numberOne / secondNumber).ToString();
-            else if (op == "/" && numberOne != 0 && output == "0")
+                output = Multiplication(numberOne, numberTwo).ToString();
+            else if (op == "/")
+                output = Division(numberOne, numberTwo).ToString();
+
+            op = " ";
+            newNumber = false;
+        }
+
+        public double Division(double firstNumber, double secondNumber)
+        {
+            if (firstNumber == 0) return 0;
+            else if (secondNumber == 0)
             {
                 Console.SetCursorPosition(3, 2);
                 Console.WriteLine("        NaN");
                 output = "0";
                 numberOne = 0;
                 Console.ReadKey(true);
+                return 0;
             }
-            op = " ";
-            newNumber = false;
+            return firstNumber / secondNumber;
         }
+
+        public double Multiplication(double numberOne, double numberTwo)
+        {
+            return numberOne * numberTwo;
+        }
+
+        public double Subtraction(double numberOne, double numberTwo)
+        {
+            return (numberOne - numberTwo);
+        }
+
+        public double Addition(double numberOne, double numberTwo)
+        {
+            return (numberOne + numberTwo);
+        }
+
         private void CheckIfNumber(ConsoleKey input)
         {
             switch (input)
