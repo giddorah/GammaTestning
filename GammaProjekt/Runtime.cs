@@ -3,7 +3,7 @@
 
 namespace GammaProjekt
 {
-    
+
     public class Runtime
     {
         string output = "0";
@@ -35,7 +35,8 @@ namespace GammaProjekt
                     {
                         case ConsoleKey.OemComma:
                         case ConsoleKey.OemPeriod:
-                            if (!output.Contains(",") && output.Length < 9) output += ",";
+                            if (!output.Contains(".") && output.Length < 9) output += ".";
+
                             break;
                         case ConsoleKey.OemPlus:
                         case ConsoleKey.Add:
@@ -109,7 +110,15 @@ namespace GammaProjekt
             }
             else if (Operator == " ")
             {
-                numberOne = double.Parse(output);
+                try
+                {
+                    numberOne = double.Parse(output);
+                }
+                catch (Exception)
+                {
+                    output = output.Replace(".", ",");
+                    numberOne = double.Parse(output);
+                }
             }
 
             Operator = newOperator;

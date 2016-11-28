@@ -6,7 +6,7 @@ using GammaProjekt;
 namespace Testproject
 {
     [TestClass]
-    public class UnitTest1
+    public class Testing
     {
         [TestMethod]
         public void SquareRootTest()
@@ -24,3 +24,4 @@ namespace Testproject
         }
     }
 }
+
