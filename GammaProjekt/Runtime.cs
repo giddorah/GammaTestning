@@ -270,6 +270,7 @@ namespace GammaProjekt
             Console.WriteLine("\"s\" for squared");
             Console.WriteLine("\"r\" for root");
             Console.WriteLine("\"c\" to clear (twice to clear all)");
+            Console.WriteLine("\".\" or \",\" to add a decimalpoint");
             Console.WriteLine("backspace to remove the last number");
 
         }
