@@ -36,7 +36,6 @@ namespace GammaProjekt
                         case ConsoleKey.OemComma:
                         case ConsoleKey.OemPeriod:
                             if (!output.Contains(".") && output.Length < 9) output += ".";
-
                             break;
                         case ConsoleKey.OemPlus:
                         case ConsoleKey.Add:
@@ -56,6 +55,7 @@ namespace GammaProjekt
                                 numberOne = 0;
                                 op = " ";
                             }
+                            operatorRepeatNumber = 0;
                             output = "0";
                             break;
                         case ConsoleKey.Backspace:
@@ -75,7 +75,7 @@ namespace GammaProjekt
                             catch (Exception)
                             {
 
-                                output = (double.Parse(output.Replace(".",",")) * double.Parse(output.Replace(".",","))).ToString();
+                                output = (double.Parse(output.Replace(".", ",")) * double.Parse(output.Replace(".", ","))).ToString();
                             }
                             break;
                         case ConsoleKey.R:
@@ -85,7 +85,7 @@ namespace GammaProjekt
                             }
                             catch (Exception)
                             {
-                                output = SquareRoot(double.Parse(output.Replace(".",","))).ToString();
+                                output = SquareRoot(double.Parse(output.Replace(".", ","))).ToString();
                             }
                             break;
                     }
@@ -116,7 +116,8 @@ namespace GammaProjekt
         {
             if (op == newOperator)
             {
-                if (operatorRepeatNumber == 0) try
+                if (operatorRepeatNumber == 0)
+                    try
                     {
                         operatorRepeatNumber = double.Parse(output);
                     }
@@ -253,7 +254,7 @@ namespace GammaProjekt
             if (output.Length < 11)
             {
                 Console.SetCursorPosition(14 - output.Length, 2);
-                Console.WriteLine(output.Replace(",","."));
+                Console.WriteLine(output.Replace(",", "."));
             }
             else
             {
