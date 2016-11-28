@@ -1,7 +1,9 @@
 ﻿using System;
 
+
 namespace GammaProjekt
 {
+    
     internal class Runtime
     {
         string output = "0";
@@ -184,7 +186,7 @@ namespace GammaProjekt
         }
         private void Graphics()
         {
-            Console.WriteLine("┌───────────────┐");
+            Console.WriteLine("╭───────────────╮");
             Console.WriteLine("│ ┌───────────┐ │");
             Console.WriteLine("│ │           │ │");
             Console.WriteLine("│ └───────────┘ │");
@@ -196,7 +198,7 @@ namespace GammaProjekt
             Console.WriteLine("│ 7 │ 8 │ 9 │ x │");
             Console.WriteLine("├───┼───┼───┼───┤");
             Console.WriteLine("│ C │ 0 │ = │ / │");
-            Console.WriteLine("└───┴───┴───┴───┘");
+            Console.WriteLine("╰───┴───┴───┴───╯");
         }
     }
 }

@@ -10,6 +10,7 @@ namespace GammaProjekt
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             Runtime runtime = new Runtime();
             runtime.Start();
         }
