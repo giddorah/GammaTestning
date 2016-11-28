@@ -245,11 +245,9 @@ namespace GammaProjekt
             else
             {
                 var isDecimal = false;
-                for (int i = 0; i < 9; i++)
-                {
-                    if (output[i] == '.')
-                        isDecimal = true;
-                }
+
+                if (output.Contains("."))
+                    isDecimal = true;
 
                 if (isDecimal)
                 {
