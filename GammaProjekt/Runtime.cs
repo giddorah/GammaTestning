@@ -276,7 +276,7 @@ namespace GammaProjekt
             Console.WriteLine("│ │           │ │");
             Console.WriteLine("│ └───────────┘ │");
             Console.WriteLine("├───┬───┬───┬───┤");
-            Console.WriteLine("│ x²│ √ │ <─│ + │");
+            Console.WriteLine("│ x²│ √ │ ← │ + │");
             Console.WriteLine("├───┼───┼───┼───┤");
             Console.WriteLine("│ 1 │ 2 │ 3 │ - │");
             Console.WriteLine("├───┼───┼───┼───┤");
@@ -299,7 +299,7 @@ namespace GammaProjekt
             Console.WriteLine("\"r\" for root");
             Console.WriteLine("\"c\" to clear (twice to clear all)");
             Console.WriteLine("\".\" or \",\" to add a decimalpoint");
-            Console.WriteLine("\"<─\" (backspace) to remove the last number");
+            Console.WriteLine("\"←\" (backspace) to remove the last number");
 
         }
     }
