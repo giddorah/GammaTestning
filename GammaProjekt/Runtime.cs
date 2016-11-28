@@ -255,7 +255,7 @@ namespace GammaProjekt
             Console.WriteLine("│ 7 │ 8 │ 9 │ / │");
             Console.WriteLine("├───┼───┼───┼───┤");
             Console.WriteLine("│ C │ 0 │ . │ = │");
-            Console.WriteLine("└───┴───┴───┴───┘");
+            Console.WriteLine("╰───┴───┴───┴───╯");
         }
 
         private void ControlsGraphics()
