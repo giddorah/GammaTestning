@@ -1,7 +1,9 @@
 ﻿using System;
 
+
 namespace GammaProjekt
 {
+    
     internal class Runtime
     {
         string output = "0";
@@ -239,7 +241,7 @@ namespace GammaProjekt
         }
         private void CalculatorGraphics()
         {
-            Console.WriteLine("┌───────────────┐");
+            Console.WriteLine("╭───────────────╮");
             Console.WriteLine("│ ┌───────────┐ │");
             Console.WriteLine("│ │           │ │");
             Console.WriteLine("│ └───────────┘ │");
