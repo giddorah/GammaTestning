@@ -56,31 +56,47 @@ namespace Testproject
             double actualResults = runtime.Division(inputOne, inputTwo);
 
             Assert.AreEqual(expectedResult, actualResults);
-        }
-        [TestMethod]
-        [Timeout(500)]
-        public void DivisionByZero()
-        {
-            double inputOne = 7;
-            double inputTwo = 0;
-            double expectedResult = 0;
-            
 
-            double actualResults = runtime.Division(inputOne, inputTwo);
+            // It works to have several tests in the same testmethod.
+            // If there is an error it will be searchable through the output of the test.
+            inputOne = 7;
+            inputTwo = 0;
+            expectedResult = 0;
+
+            actualResults = runtime.Division(inputOne, inputTwo);
+            Assert.AreEqual(expectedResult, actualResults);
+
+            inputOne = 0;
+            inputTwo = 5;
+            expectedResult = 0;
+
+            actualResults = runtime.Division(inputOne, inputTwo);
             Assert.AreEqual(expectedResult, actualResults);
         }
-        [TestMethod]
-        [Timeout(500)]
-        public void ZeroDivided()
-        {
+        //[TestMethod]
+        //[Timeout(500)]
+        //public void DivisionByZero()
+        //{
+        //    double inputOne = 7;
+        //    double inputTwo = 0;
+        //    double expectedResult = 0;
             
-            double inputOne = 0;
-            double inputTwo = 5;
-            double expectedResult = 0;
 
-            double actualResults = runtime.Division(inputOne, inputTwo);
-            Assert.AreEqual(expectedResult, actualResults);
-        }
+        //    double actualResults = runtime.Division(inputOne, inputTwo);
+        //    Assert.AreEqual(expectedResult, actualResults);
+        //}
+        //[TestMethod]
+        //[Timeout(500)]
+        //public void ZeroDivided()
+        //{
+            
+        //    double inputOne = 0;
+        //    double inputTwo = 5;
+        //    double expectedResult = 0;
+
+        //    double actualResults = runtime.Division(inputOne, inputTwo);
+        //    Assert.AreEqual(expectedResult, actualResults);
+        //}
         [TestMethod]
         public void SquareRootTest()
         {
