@@ -45,37 +45,40 @@ namespace Testproject
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
+        [Timeout(2000)]
         public void DivisionTest1()
         {
-            bool test = true;
+            
             double inputOne = 7;
             double inputTwo = 3;
             double expectedResult = inputOne / inputTwo;
 
-            double actualResults = runtime.Division(inputOne, inputTwo, test);
+            double actualResults = runtime.Division(inputOne, inputTwo);
 
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
+        [Timeout(2000)]
         public void DivisionByZero()
         {
             double inputOne = 7;
             double inputTwo = 0;
             double expectedResult = 0;
-            bool test = true;
+            
 
-            double actualResults = runtime.Division(inputOne, inputTwo, test);
+            double actualResults = runtime.Division(inputOne, inputTwo);
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
+        [Timeout(2000)]
         public void ZeroDivided()
         {
-            bool test = true;
+            
             double inputOne = 0;
             double inputTwo = 5;
             double expectedResult = 0;
 
-            double actualResults = runtime.Division(inputOne, inputTwo, test);
+            double actualResults = runtime.Division(inputOne, inputTwo);
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
