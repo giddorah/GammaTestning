@@ -49,26 +49,31 @@ namespace Testproject
         public void DivisionTest1()
         {
 
-            double expectedResult = 7/3;
+            double inputOne = 7;
+            double inputTwo = 3;
+            double expectedResult = inputOne / inputTwo;
 
-            double actualResults = runtime.Division(7,3);
+            double actualResults = runtime.Division(inputOne, inputTwo);
 
             Assert.AreEqual(expectedResult, actualResults);
 
             // It works to have several tests in the same testmethod.
             // If there is an error it will be searchable through the output of the test.
-            
+            inputOne = 7;
+            inputTwo = 0;
             expectedResult = 1; // This will cause an error (just for show). Change to a 0 to pass test.
 
-            actualResults = runtime.Division(7,0);
+            actualResults = runtime.Division(inputOne, inputTwo);
             Assert.AreEqual(expectedResult, actualResults);
 
-            
+            inputOne = 0;
+            inputTwo = 5;
             expectedResult = 0;
 
-            actualResults = runtime.Division(0, 5);
+            actualResults = runtime.Division(inputOne, inputTwo);
             Assert.AreEqual(expectedResult, actualResults);
         }
+
 
         //[TestMethod]
         //[Timeout(500)]
@@ -77,7 +82,7 @@ namespace Testproject
         //    double inputOne = 7;
         //    double inputTwo = 0;
         //    double expectedResult = 0;
-            
+
 
         //    double actualResults = runtime.Division(inputOne, inputTwo);
         //    Assert.AreEqual(expectedResult, actualResults);
@@ -86,7 +91,7 @@ namespace Testproject
         //[Timeout(500)]
         //public void ZeroDivided()
         //{
-            
+
         //    double inputOne = 0;
         //    double inputTwo = 5;
         //    double expectedResult = 0;
