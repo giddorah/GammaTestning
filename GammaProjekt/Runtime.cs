@@ -100,7 +100,6 @@ namespace GammaProjekt
 
         private void ChangeOperator(string newOperator)
         {
-            bool test = false;
             if (op == newOperator)
             {
                 if (operatorRepeatNumber == 0)
