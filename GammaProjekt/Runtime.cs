@@ -171,7 +171,7 @@ namespace GammaProjekt
                 Console.WriteLine("        NaN");
                 output = "0";
                 numberOne = 0;
-                Console.ReadKey(true);
+                //Console.ReadKey(true); // Why is this here?
                 return 0;
             }
             return firstNumber / secondNumber;

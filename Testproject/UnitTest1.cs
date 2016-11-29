@@ -58,7 +58,7 @@ namespace Testproject
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
-        [Timeout(2000)]
+        [Timeout(5000)]
         public void DivisionByZero()
         {
             double inputOne = 7;
