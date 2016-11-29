@@ -22,6 +22,7 @@ namespace Testproject
 
             Assert.AreEqual(expectedResult, actualResults);
         }
+
         [TestMethod]
         public void SubtractionTest()
         {
@@ -33,6 +34,7 @@ namespace Testproject
 
             Assert.AreEqual(expectedResult, actualResults);
         }
+
         [TestMethod]
         public void MultiplicationTest()
         {
@@ -44,6 +46,7 @@ namespace Testproject
 
             Assert.AreEqual(expectedResult, actualResults);
         }
+
         [TestMethod]
         [Timeout(500)]
         public void DivisionTest1()
@@ -61,7 +64,7 @@ namespace Testproject
             // If there is an error it will be searchable through the output of the test.
             inputOne = 7;
             inputTwo = 0;
-            expectedResult = 0;
+            expectedResult = 1; // This will cause an error (just for show). Change to a 0 to pass test.
 
             actualResults = runtime.Division(inputOne, inputTwo);
             Assert.AreEqual(expectedResult, actualResults);
@@ -73,6 +76,7 @@ namespace Testproject
             actualResults = runtime.Division(inputOne, inputTwo);
             Assert.AreEqual(expectedResult, actualResults);
         }
+
         //[TestMethod]
         //[Timeout(500)]
         //public void DivisionByZero()
@@ -97,6 +101,7 @@ namespace Testproject
         //    double actualResults = runtime.Division(inputOne, inputTwo);
         //    Assert.AreEqual(expectedResult, actualResults);
         //}
+
         [TestMethod]
         public void SquareRootTest()
         {
