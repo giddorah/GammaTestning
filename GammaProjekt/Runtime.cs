@@ -190,7 +190,7 @@ namespace GammaProjekt
             return (numberOne + numberTwo);
         }
 
-        private void CheckIfNumber(ConsoleKey input)
+        public void CheckIfNumber(ConsoleKey input)
         {
             switch (input)
             {
