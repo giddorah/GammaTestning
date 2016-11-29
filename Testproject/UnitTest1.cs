@@ -14,11 +14,10 @@ namespace Testproject
         [TestMethod]
         public void AdditionTest()
         {
-            double inputOne = 2;
-            double inputTwo = 5;
-            double expectedResult = inputOne + inputTwo;
+            
+            double expectedResult = 2 + 5 ;
 
-            double actualResults = runtime.Addition(inputOne, inputTwo);
+            double actualResults = runtime.Addition(2, 5);
 
             Assert.AreEqual(expectedResult, actualResults);
         }
@@ -26,11 +25,10 @@ namespace Testproject
         [TestMethod]
         public void SubtractionTest()
         {
-            double inputOne = 7;
-            double inputTwo = 3;
-            double expectedResult = inputOne - inputTwo;
+           
+            double expectedResult = 4;
 
-            double actualResults = runtime.Subtraction(inputOne, inputTwo);
+            double actualResults = runtime.Subtraction(7, 3);
 
             Assert.AreEqual(expectedResult, actualResults);
         }
@@ -38,11 +36,10 @@ namespace Testproject
         [TestMethod]
         public void MultiplicationTest()
         {
-            double inputOne = 7;
-            double inputTwo = 3;
-            double expectedResult = inputOne * inputTwo;
+            
+            double expectedResult = 21;
 
-            double actualResults = runtime.Multiplication(inputOne, inputTwo);
+            double actualResults = runtime.Multiplication(7, 3);
 
             Assert.AreEqual(expectedResult, actualResults);
         }
@@ -51,29 +48,25 @@ namespace Testproject
         [Timeout(500)]
         public void DivisionTest1()
         {
-            
-            double inputOne = 7;
-            double inputTwo = 3;
-            double expectedResult = inputOne / inputTwo;
 
-            double actualResults = runtime.Division(inputOne, inputTwo);
+            double expectedResult = 7/3;
+
+            double actualResults = runtime.Division(7,3);
 
             Assert.AreEqual(expectedResult, actualResults);
 
             // It works to have several tests in the same testmethod.
             // If there is an error it will be searchable through the output of the test.
-            inputOne = 7;
-            inputTwo = 0;
+            
             expectedResult = 1; // This will cause an error (just for show). Change to a 0 to pass test.
 
-            actualResults = runtime.Division(inputOne, inputTwo);
+            actualResults = runtime.Division(7,0);
             Assert.AreEqual(expectedResult, actualResults);
 
-            inputOne = 0;
-            inputTwo = 5;
+            
             expectedResult = 0;
 
-            actualResults = runtime.Division(inputOne, inputTwo);
+            actualResults = runtime.Division(0, 5);
             Assert.AreEqual(expectedResult, actualResults);
         }
 
