@@ -5,37 +5,39 @@ namespace GammaProjekt
 {
     public class Runtime
     {
+        // Classvariables used in more methods than one.
         string output = "0";
         string op = " ";
         double numberOne = 0;
         double operatorRepeatNumber = 0;
         bool newNumber = false;
+        // End of class variables.
         internal void Start()
         {
-            CalculatorGraphics();
-            ControlsGraphics();
-            Console.CursorVisible = false;
-            while (true)
+            CalculatorGraphics(); // Shows the user interface (the caluculator)
+            ControlsGraphics(); // Shows a guide for what is possible.
+            Console.CursorVisible = false; // Hides the user cursor from the console.
+            while (true) // Loops through the entire project indefinately
             {
-                ShowNumbers();
-                var input = Console.ReadKey(true);
+                ShowNumbers(); // Shows the current numbers that have been entered in the right position
+                var input = Console.ReadKey(true); // Accepts input from user.
                 if ((input.Modifiers & ConsoleModifiers.Shift) != 0 && input.Key == ConsoleKey.D7 || input.Key == ConsoleKey.Divide)
-                {
-                    ChangeOperator("/");
+                { // If input is shift + 7 (/) or the /-key on numpad.
+                    ChangeOperator("/"); // Sets the visible operator to /
                 }
                 else if ((input.Modifiers & ConsoleModifiers.Shift) != 0 && input.Key == ConsoleKey.D0 || input.Key == ConsoleKey.Enter)
-                {
-                    Enter();
+                { // If input is shift + 0 (=) or enter
+                    Enter(); // Makes calculation
                 }
-                else
+                else // If input is not one of the above
                 {
-                    CheckIfNumber(input.Key);
+                    CheckIfNumber(input.Key); // Checks what input is entered by the user
                     switch (input.Key)
                     {
-                        case ConsoleKey.OemComma:
+                        case ConsoleKey.OemComma: // If user presses . or ,
                         case ConsoleKey.OemPeriod:
                             if (!output.Contains(".") && output.Length < 9) output += ".";
-                            break;
+                            break; // If output does NOT contain . and has a length shorter than 9. Output is set to .
                         case ConsoleKey.OemPlus:
                         case ConsoleKey.Add:
                             ChangeOperator("+");
@@ -49,41 +51,41 @@ namespace GammaProjekt
                             ChangeOperator("x");
                             break;
                         case ConsoleKey.C:
-                            if (output == "0")
+                            if (output == "0") // If output is 0
                             {
-                                numberOne = 0;
-                                op = " ";
+                                numberOne = 0; // Sets numberone to 0
+                                op = " "; // Clears the operator
                             }
-                            operatorRepeatNumber = 0;
-                            output = "0";
+                            operatorRepeatNumber = 0; // Sets the last entered number to 0
+                            output = "0"; // Shows a 0 on the screen
                             break;
                         case ConsoleKey.Backspace:
-                            if (!newNumber)
+                            if (!newNumber) // If notnumber is not true
                             {
-                                output = output.Remove(output.Length - 1);
+                                output = output.Remove(output.Length - 1); // Remove the last entered number
                             }
-                            else output = "0";
+                            else output = "0"; // If output is 0
                             if (output.Length == 0)
-                                output = "0";
+                                output = "0"; // Sets output to 0
                             break;
                         case ConsoleKey.S:
-                            try
-                            {
+                            try // Tries the below operation
+                            { // multiplicates output with output
                                 output = (double.Parse(output) * double.Parse(output)).ToString();
                             }
-                            catch (Exception)
+                            catch (Exception) // Runs if above throws an exception
                             {
-
+                                // Changes the . to , (neccessary if the keyboard region is another than swedish)
                                 output = (double.Parse(output.Replace(".", ",")) * double.Parse(output.Replace(".", ","))).ToString();
                             }
                             break;
                         case ConsoleKey.R:
-                            try
-                            {
+                            try // Tries below
+                            { // Tries to find the root from input
                                 output = SquareRoot(double.Parse(output)).ToString();
                             }
                             catch (Exception)
-                            {
+                            { // Changes . to ,
                                 output = SquareRoot(double.Parse(output.Replace(".", ","))).ToString();
                             }
                             break;
@@ -93,16 +95,16 @@ namespace GammaProjekt
         }
 
         public double SquareRoot(double input)
-        {
+        { // Finds the square root out of input.
             return Math.Sqrt(input);
         }
 
         private void ChangeOperator(string newOperator)
-        {
+        { // If user enters a new operator (changes from + to - or so)
             if (op == newOperator)
             {
                 if (operatorRepeatNumber == 0)
-                    try
+                    try // Try/catch to see that it works.
                     {
                         operatorRepeatNumber = double.Parse(output);
                     }
@@ -110,7 +112,7 @@ namespace GammaProjekt
                     {
                         output = output.Replace(".", ",");
                         operatorRepeatNumber = double.Parse(output);
-                    }
+                    } // Makes the calculations based on what operator the user chose.
                 if (newOperator == "+") numberOne = Addition(numberOne, operatorRepeatNumber);
                 else if (newOperator == "-") numberOne = Subtraction(numberOne, operatorRepeatNumber);
                 else if (newOperator == "x") numberOne = Multiplication(numberOne, operatorRepeatNumber);
@@ -118,13 +120,13 @@ namespace GammaProjekt
                 output = numberOne.ToString();
             }
             else if (op == " ")
-            {
+            { // If the operator is empty.
                 try
-                {
+                { // Try/catch to see if numberOne can be caught
                     numberOne = double.Parse(output);
                 }
                 catch (Exception)
-                {
+                { // Changes . to , if not a swedish region.
                     output = output.Replace(".", ",");
                     numberOne = double.Parse(output);
                 }
@@ -135,18 +137,18 @@ namespace GammaProjekt
         }
 
         private void Enter()
-        {
+        { // Method if the user clicks enter or =
             
-            var numberTwo = 0.0;
-            try
+            var numberTwo = 0.0; // Resets numbertwo to 0
+            try // Try/catch to check input
             {
                 numberTwo = double.Parse(output);
             }
             catch (Exception)
-            {
+            { // Replaces . with , on non-swedish regions.
                 output = output.Replace(".", ",");
                 numberTwo = double.Parse(output);
-            }
+            } // Changes operator
             if (op == "+")
                 output = Addition(numberOne, numberTwo).ToString();
             else if (op == "-")
