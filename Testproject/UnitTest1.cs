@@ -45,7 +45,7 @@ namespace Testproject
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
-        [Timeout(2000)]
+        [Timeout(500)]
         public void DivisionTest1()
         {
             
@@ -58,7 +58,7 @@ namespace Testproject
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
-        [Timeout(5000)]
+        [Timeout(500)]
         public void DivisionByZero()
         {
             double inputOne = 7;
@@ -70,7 +70,7 @@ namespace Testproject
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
-        [Timeout(2000)]
+        [Timeout(500)]
         public void ZeroDivided()
         {
             

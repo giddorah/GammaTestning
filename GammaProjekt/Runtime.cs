@@ -3,7 +3,6 @@
 
 namespace GammaProjekt
 {
-
     public class Runtime
     {
         string output = "0";
