@@ -100,6 +100,7 @@ namespace GammaProjekt
 
         private void ChangeOperator(string newOperator)
         {
+            bool test = false;
             if (op == newOperator)
             {
                 if (operatorRepeatNumber == 0)
@@ -115,7 +116,7 @@ namespace GammaProjekt
                 if (newOperator == "+") numberOne = Addition(numberOne, operatorRepeatNumber);
                 else if (newOperator == "-") numberOne = Subtraction(numberOne, operatorRepeatNumber);
                 else if (newOperator == "x") numberOne = Multiplication(numberOne, operatorRepeatNumber);
-                else if (newOperator == "/") numberOne = Division(numberOne, operatorRepeatNumber);
+                else if (newOperator == "/") numberOne = Division(numberOne, operatorRepeatNumber, test);
                 output = numberOne.ToString();
             }
             else if (op == " ")
@@ -137,6 +138,7 @@ namespace GammaProjekt
 
         private void Enter()
         {
+            bool test = false;
             var numberTwo = 0.0;
             try
             {
@@ -154,13 +156,13 @@ namespace GammaProjekt
             else if (op == "x")
                 output = Multiplication(numberOne, numberTwo).ToString();
             else if (op == "/")
-                output = Division(numberOne, numberTwo).ToString();
+                output = Division(numberOne, numberTwo, test).ToString();
 
             op = " ";
             newNumber = false;
         }
 
-        public double Division(double firstNumber, double secondNumber)
+        public double Division(double firstNumber, double secondNumber, bool test)
         {
             if (firstNumber == 0) return 0;
             else if (secondNumber == 0)
@@ -169,7 +171,10 @@ namespace GammaProjekt
                 Console.WriteLine("        NaN");
                 output = "0";
                 numberOne = 0;
-                Console.ReadKey(true);
+                if (!test)
+                {
+                    Console.ReadKey(true);
+                }
                 return 0;
             }
             return firstNumber / secondNumber;

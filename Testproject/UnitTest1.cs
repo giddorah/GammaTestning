@@ -47,11 +47,12 @@ namespace Testproject
         [TestMethod]
         public void DivisionTest1()
         {
+            bool test = true;
             double inputOne = 7;
             double inputTwo = 3;
             double expectedResult = inputOne / inputTwo;
 
-            double actualResults = runtime.Division(inputOne, inputTwo);
+            double actualResults = runtime.Division(inputOne, inputTwo, test);
 
             Assert.AreEqual(expectedResult, actualResults);
         }
@@ -61,18 +62,20 @@ namespace Testproject
             double inputOne = 7;
             double inputTwo = 0;
             double expectedResult = 0;
+            bool test = true;
 
-            double actualResults = runtime.Division(inputOne, inputTwo);
+            double actualResults = runtime.Division(inputOne, inputTwo, test);
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
         public void ZeroDivided()
         {
+            bool test = true;
             double inputOne = 0;
             double inputTwo = 5;
             double expectedResult = 0;
 
-            double actualResults = runtime.Division(inputOne, inputTwo);
+            double actualResults = runtime.Division(inputOne, inputTwo, test);
             Assert.AreEqual(expectedResult, actualResults);
         }
         [TestMethod]
