@@ -20,7 +20,11 @@ namespace CocacolaCalculator
             //    return "Cocacola";
             //else return "";
 
-            if (input % 5 == 0 && input % 3 == 0)
+            //if (input % 5 == 0 && input % 3 == 0)
+            //    return "Cocacola";
+            //else return "";
+
+            if (input % 15 == 0)
                 return "Cocacola";
             else return "";
 
@@ -37,7 +41,7 @@ namespace CocacolaCalculator
             //{
             //    output = output[0].ToString().ToUpper() + output.Substring(1);
             //    return output;
-            
+
             //    Alternative att metoden printar ut och returnerar en bool iställer för att returnera strängen
             //    Console.WriteLine(output);
             //    return bool;
@@ -58,7 +62,13 @@ namespace CocacolaCalculator
             //    return true;
             //else return false;
 
-            if (input % 5 == 0 && input % 3 == 0)
+            //if (input % 5 == 0 && input % 3 == 0)
+            //{
+            //    return true;
+            //}
+            //else return false;
+
+            if (input % 15 == 0)
             {
                 // alternative version 1 att metoden skriver ut svaret och att den returnerar så att huvudprogrammet vet att inte anropa de andra metoderna.
                 // Console.WriteLine("Cocacola");

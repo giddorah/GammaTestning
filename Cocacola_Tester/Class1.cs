@@ -10,6 +10,7 @@ namespace Cocacola_Tester
     [TestFixture]
     public class TestsForMethodOne
     {
+        // test för att se att vid ett number som är delbart med båda så blir det rätt
         [Test]
         public void Test_If_Input_15_Returns_Cocacola()
         {
@@ -20,6 +21,7 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
+        //test för att see att den inte returnerar Cocacola när numret är bara delbart med 3
         [Test]
         public void Test_If_Input_6_Returns_An_Empty_String()
         {
@@ -30,6 +32,7 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
+        // testar att den funkar med ett till rätt svar än bara 15
         [Test]
         public void Test_If_Input_30_Returns_An_Cocacola()
         {
@@ -40,6 +43,7 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
+        //test för att see att den inte returnerar Cocacola när numret är bara delbart med 5
         [Test]
         public void Test_If_Input_10_Returns_An_Empty_String()
         {
@@ -54,6 +58,7 @@ namespace Cocacola_Tester
     [TestFixture]
     public class TestsForMethodTwo
     {
+        // test för att se att vid ett number som är delbart med båda så blir det rätt
         [Test]
         public void Test_If_Input_15_Returns_True()
         {
@@ -64,6 +69,7 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
+        //test för att see att den inte returnerar Cocacola när numret är bara delbart med 3
         [Test]
         public void Test_If_Input_6_Returns_False()
         {
@@ -74,6 +80,7 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
+        // testar att den funkar med ett till rätt svar än bara 15
         [Test]
         public void Test_If_Input_30_Returns_True()
         {
@@ -84,6 +91,7 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
+        //test för att see att den inte returnerar Cocacola när numret är bara delbart med 5
         [Test]
         public void Test_If_Input_10_Returns_False()
         {
