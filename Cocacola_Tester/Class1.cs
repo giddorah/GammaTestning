@@ -20,5 +20,34 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
+        [Test]
+        public void Test_If_Input_6_Returns_An_Empty_String()
+        {
+            CocacolaCal ccc = new CocacolaCal();
+            int input = 6;
+            string expectedOutput = "";
+            string actualOutput = ccc.CheckIfDivisibleBy3And5(input);
+            Assert.AreEqual(expectedOutput, actualOutput);
+        }
+
+        [Test]
+        public void Test_If_Input_30_Returns_An_Cocacola()
+        {
+            CocacolaCal ccc = new CocacolaCal();
+            int input = 30;
+            string expectedOutput = "Cocacola";
+            string actualOutput = ccc.CheckIfDivisibleBy3And5(input);
+            Assert.AreEqual(expectedOutput, actualOutput);
+        }
+
+        [Test]
+        public void Test_If_Input_10_Returns_An_Empty_String()
+        {
+            CocacolaCal ccc = new CocacolaCal();
+            int input = 10;
+            string expectedOutput = "";
+            string actualOutput = ccc.CheckIfDivisibleBy3And5(input);
+            Assert.AreEqual(expectedOutput, actualOutput);
+        }
     }
 }
