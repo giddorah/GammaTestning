@@ -32,12 +32,12 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
-        // testar att den funkar med ett till rätt svar än bara 15
+        // testar att den funkar med andra rätta svar än bara 15
         [Test]
-        public void Test_If_Input_30_Returns_An_Cocacola()
+        public void Test_If_Various_Inputs_Returns_Cocacola(
+            [Values ( 30, 45, 60, 120)] int input)
         {
             CocacolaCal ccc = new CocacolaCal();
-            int input = 30;
             string expectedOutput = "Cocacola";
             string actualOutput = ccc.CheckIfDivisibleBy3And5(input);
             Assert.AreEqual(expectedOutput, actualOutput);
@@ -80,12 +80,12 @@ namespace Cocacola_Tester
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
-        // testar att den funkar med ett till rätt svar än bara 15
+        // testar att den funkar med andra rätta svar än bara 15
         [Test]
-        public void Test_If_Input_30_Returns_True()
+        public void Test_If_Various_Inputs_Returns_True(
+            [Values(30, 45, 60, 120)] int input)
         {
             CocacolaCal ccc = new CocacolaCal();
-            int input = 30;
             bool expectedOutput = true;
             bool actualOutput = ccc.CheckIfDivisibleBy3And5Version2(input);
             Assert.AreEqual(expectedOutput, actualOutput);
