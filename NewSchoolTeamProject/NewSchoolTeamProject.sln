@@ -5,10 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewSchoolTeamProject", "NewSchoolTeamProject.csproj", "{7DBFBC39-1FDA-4B41-83E6-BBA6869EB7D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JS.Tester", "..\JS.Tester\JS.Tester.csproj", "{A2B1F240-2B23-4A5C-8B33-67D523BBFF0B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Three.Library", "Three.Library\Three.Library.csproj", "{0D6B49EC-7DBC-4F31-B765-4FF67B374356}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{7DBFBC39-1FDA-4B41-83E6-BBA6869EB7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DBFBC39-1FDA-4B41-83E6-BBA6869EB7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DBFBC39-1FDA-4B41-83E6-BBA6869EB7D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2B1F240-2B23-4A5C-8B33-67D523BBFF0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2B1F240-2B23-4A5C-8B33-67D523BBFF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2B1F240-2B23-4A5C-8B33-67D523BBFF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2B1F240-2B23-4A5C-8B33-67D523BBFF0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D6B49EC-7DBC-4F31-B765-4FF67B374356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D6B49EC-7DBC-4F31-B765-4FF67B374356}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D6B49EC-7DBC-4F31-B765-4FF67B374356}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D6B49EC-7DBC-4F31-B765-4FF67B374356}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
