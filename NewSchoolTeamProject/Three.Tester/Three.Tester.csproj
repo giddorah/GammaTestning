@@ -53,6 +53,12 @@
     <Compile Include="Three.Tester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Three.Tester\Three.Library.csproj">
+      <Project>{326ce173-2af6-40fa-bde4-751f27f51146}</Project>
+      <Name>Three.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

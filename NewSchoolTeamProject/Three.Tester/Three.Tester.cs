@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Three.Library;
 
 namespace Three.Tester
 {
@@ -9,6 +10,9 @@ namespace Three.Tester
         [TestMethod]
         public void SeeIfDividableByThreeReturnsCoca()
         {
+            var library = new ThreeLibrary();
+
+
         }
 
         [TestMethod]
