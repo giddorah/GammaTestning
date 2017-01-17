@@ -35,7 +35,7 @@ namespace Program.Tester
 
         // testar att den funkar med andra rätta svar än bara 15
         [TestMethod]
-        public void Test_If_Various_Inputs_Returns_True()
+        public void Test_If_Input_30_Returns_True()
         {
             int input = 30;
             _3and5Class ccc = new _3and5Class();
