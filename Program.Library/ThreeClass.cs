@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Program.Library
 {
-    class ThreeClass
+    public class ThreeClass
     {
+        public bool threeReturner(int input)
+        {
+            if (input % 3 == 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
