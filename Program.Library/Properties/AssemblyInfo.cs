@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ThreeJS.Library")]
+[assembly: AssemblyTitle("Program.Library")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ThreeJS.Library")]
+[assembly: AssemblyProduct("Program.Library")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b1147260-f745-4ae4-94f8-362f9266f517")]
+[assembly: Guid("bec5244d-2338-47bc-8ea6-625642beafae")]
 
 // Version information for an assembly consists of the following four values:
 //
