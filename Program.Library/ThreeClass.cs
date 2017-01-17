@@ -8,7 +8,7 @@ namespace Program.Library
 {
     public class ThreeClass
     {
-        public bool threeReturner(int input)
+        public bool ThreeReturner(int input)
         {
             if (input % 3 == 0)
             {

@@ -14,7 +14,7 @@ namespace Program.Tester
 
             var input = 3;
 
-            var actualOutput = threeClass.threeReturner(input);
+            var actualOutput = threeClass.ThreeReturner(input);
 
             Assert.AreEqual(true, actualOutput);
         }
@@ -26,7 +26,7 @@ namespace Program.Tester
 
             var input = 5;
 
-            var actualOutput = threeClass.threeReturner(input);
+            var actualOutput = threeClass.ThreeReturner(input);
 
             Assert.AreEqual(false, actualOutput);
         }
