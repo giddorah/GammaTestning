@@ -12,7 +12,6 @@ namespace Program.Library
         {
             if (input % 5 == 0)
                 return true;
-
             else return false;
         }
     }
