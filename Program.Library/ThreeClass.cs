@@ -9,12 +9,8 @@ namespace Program.Library
     public class ThreeClass
     {
         public bool ThreeReturner(int input)
-        {
-            if (input % 3 == 0)
-            {
-                return true;
-            }
-            return false;
+        { // Returns true if input is dividable by three.
+            return input % 3 == 0;
         }
     }
 }
