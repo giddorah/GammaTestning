@@ -26,7 +26,10 @@ namespace NewSchoolTeamProject
     {
         static void Main(string[] args)
         {
-           
+           var programLibrary = new ProgramLibrary();
+
+            programLibrary.ResultPrinter();
+            Console.ReadLine();
         }
     }
 }
