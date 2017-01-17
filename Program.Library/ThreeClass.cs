@@ -10,11 +10,7 @@ namespace Program.Library
     {
         public bool ThreeReturner(int input)
         {
-            if (input % 3 == 0)
-            {
-                return true;
-            }
-            return false;
+            return input % 3 == 0;
         }
     }
 }
