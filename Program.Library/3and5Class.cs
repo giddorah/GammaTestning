@@ -27,16 +27,12 @@ namespace Program.Library
             //}
             //else return false;
 
-            if (input % 15 == 0)
-            {
-                return true;
-            }
-            else return false;
+            return input % 15 == 0;
 
             // alternative version att metoden anropar de andra två metoderna som skulle då returnera true eller false
             // if (DivisibleBy3 && DivisibleBy5)
             //{
-            //    return true;
+            //    return DivisibleBy3(input) && DivisibleBy5(input);
             //}
             //else return false;
         }
