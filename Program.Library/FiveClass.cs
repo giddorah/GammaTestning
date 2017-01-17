@@ -10,9 +10,10 @@ namespace Program.Library
     {
         public bool CheckIfDevidableBy5(int input)
         {
-            if (input % 5 == 0)
-                return true;
-            else return false;
+
+            return input % 5 == 0;
+
+
         }
     }
 }
