@@ -10,26 +10,28 @@ namespace Program.Library
     {
         public void ResultPrinter()
         {
-            var _3and5class = new _3and5Class();
-            var threeCLass = new ThreeClass();
-            var fiveClass = new FiveClass();
+            // Creates the objects for each control-class
+            var checkThreeAndFive = new _3and5Class();
+            var checkThree = new ThreeClass();
+            var checkFive = new FiveClass();
 
-            for (int i = 1; i < 101; i++)
+            // Loops through 1-100
+            for (int i = -100; i < 101; i++)
             {
-                if(_3and5class.CheckIfDivisibleBy3And5(i))
-                {
+                if(checkThreeAndFive.IfDivisableByThreeAndFive(i))
+                { // If i is divisable by three and five, types below:
                     Console.WriteLine("Cocacola");
                 }
-                else if (threeCLass.ThreeReturner(i))
-                {
+                else if (checkThree.IfDivisableByThree(i))
+                { // If i is divisable by three, types below:
                     Console.WriteLine("Coca");
                 }
-                else if (fiveClass.CheckIfDevidableBy5(i))
-                {
+                else if (checkFive.IfDivisableByFive(i))
+                { // If i is divisable by five, types below:
                     Console.WriteLine("Cola");
                 }
                 else
-                {
+                { // Else it returns the number value of i:
                     Console.WriteLine(i);
                 }
             }

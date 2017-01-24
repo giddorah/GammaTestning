@@ -8,6 +8,11 @@ using Program.Library;
 
 namespace Program.Tester
 {
+
+    // By Michael Åke McClaren Wood
+
+
+
     [TestClass]
     public class CocacolaTester
     {
@@ -18,7 +23,7 @@ namespace Program.Tester
             _3and5Class ccc = new _3and5Class();
             int input = 15;
             bool expectedOutput = true;
-            bool actualOutput = ccc.CheckIfDivisibleBy3And5(input);
+            bool actualOutput = ccc.IfDivisableByThreeAndFive(input);
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
@@ -29,7 +34,7 @@ namespace Program.Tester
             _3and5Class ccc = new _3and5Class();
             int input = 6;
             bool expectedOutput = false;
-            bool actualOutput = ccc.CheckIfDivisibleBy3And5(input);
+            bool actualOutput = ccc.IfDivisableByThreeAndFive(input);
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
@@ -40,7 +45,7 @@ namespace Program.Tester
             int input = 30;
             _3and5Class ccc = new _3and5Class();
             bool expectedOutput = true;
-            bool actualOutput = ccc.CheckIfDivisibleBy3And5(input);
+            bool actualOutput = ccc.IfDivisableByThreeAndFive(input);
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
@@ -51,7 +56,7 @@ namespace Program.Tester
             _3and5Class ccc = new _3and5Class();
             int input = 10;
             bool expectedOutput = false;
-            bool actualOutput = ccc.CheckIfDivisibleBy3And5(input);
+            bool actualOutput = ccc.IfDivisableByThreeAndFive(input);
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 

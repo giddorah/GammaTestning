@@ -4,6 +4,12 @@ using Program.Library;
 
 namespace Program.Tester
 {
+
+
+    // By Karl Ludwig Kleiser
+
+
+
     [TestClass]
     public class FiveClassTester
     {
@@ -16,7 +22,7 @@ namespace Program.Tester
 
             bool expectedOutput = true;
 
-            bool actualOutput = fiveClass.CheckIfDevidableBy5(input);
+            bool actualOutput = fiveClass.IfDivisableByFive(input);
 
             Assert.AreEqual(expectedOutput, actualOutput);
         }
@@ -31,7 +37,7 @@ namespace Program.Tester
 
             bool expectedOutput = false;
 
-            bool actualOutput = fiveClass.CheckIfDevidableBy5(input);
+            bool actualOutput = fiveClass.IfDivisableByFive(input);
 
             Assert.AreEqual(expectedOutput, actualOutput);
         }

@@ -18,7 +18,7 @@ namespace Cardgame.Library
             {
                 ColorAdder(input[2]);
                 CardAdderDouble(input[0], input[1]);
-                return String.Format("{0}{1}", Card, Color);
+                return string.Format("{0}{1}", Card, Color);
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Cardgame.Library
             }
             else if (input == 'c')
             {
-                Color = " of Cloves";
+                Color = " of Clubs";
             }
             else if (input == 's')
             {

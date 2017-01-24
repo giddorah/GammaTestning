@@ -9,7 +9,7 @@ using Cardgame.Library;
 namespace Cardgame
 {
     // Hearts, Diamonds, Cloves, Spades
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {

@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Program.Library
 {
+
+
+
+    // By Karl Ludwig Kleiser
+
+
+
     public class FiveClass
     {
-        public bool CheckIfDevidableBy5(int input)
+        public bool IfDivisableByFive(int input)
         {
-
+            // Returns a true bool if input is divisable by 5.
             return input % 5 == 0;
 
 
